@@ -12,6 +12,24 @@ class Book{
         std::vector chapter;
     public:
         Book()
-        : title(""),
+        : title(""),author(Author()),publicationYear(0){};
+        Book(std::string title , Author bookAuthor,int publicationYear,std::vector chapter)
+        :title(book.Title),author(bookAuthor),publicationYear(bookpublicationYear){};
 
+       std::string getTitle(){
+        return title;
+       }
+       int getpublicationYear(){
+        return publicationYear;
+       }
+       Author getAuthor(){
+        return author;
+       }
+       std::vector getChapter(){
+        return chapter;
+       }
+       void display(){
+        cout<<" book "<<bookTitle<<" by "<<bookAuthor<<" publicated in "<<bookpublicationYear;
+       }
 }
+#endif
