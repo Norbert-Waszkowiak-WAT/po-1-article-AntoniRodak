@@ -1,35 +1,37 @@
+#ifndef BOOK_H
+#define BOOK_H
 #include <iostream>
 #include <string>
+#include <vector>
 #include "author.cpp"
 #include "chapter.cpp"
-#include <vector>
-
+using namespace std;
 class Book{
-    private:
-        std::string title;
-        int publicationYear;
-        Author author;
-        std::vector chapter;
-    public:
-        Book()
-        : title(""),author(Author()),publicationYear(0){};
-        Book(std::string title , Author bookAuthor,int publicationYear,std::vector chapter)
-        :title(book.Title),author(bookAuthor),publicationYear(bookpublicationYear){};
+   private:
+    int publicationYear;
+    string title;
+    vector<Chapter> chapters;
+    Author author;
 
-       std::string getTitle(){
-        return title;
-       }
-       int getpublicationYear(){
-        return publicationYear;
-       }
-       Author getAuthor(){
-        return author;
-       }
-       std::vector getChapter(){
-        return chapter;
-       }
-       void display(){
-        cout<<" book "<<bookTitle<<" by "<<bookAuthor<<" publicated in "<<bookpublicationYear;
-       }
-}
-#endif
+    public:
+           Book():
+    title(""), author(Author()),publicationYear(0), chapters({}) {};
+         Book(const string bookTitle, const Author &bookAuthor, int year, const vector<Chapter>&bookChapters):
+         title(bookTitle), author(bookAuthor), publicationYear(year), chapters(bookChapters) {};
+         void addChapter(const Chapter &chapter){
+                chapters.push_back(chapter);
+         };
+         string getTitle(){
+            return title;
+         };
+            Author getAuthor(){
+                return author;
+            };
+            int getPublicationYear(){
+                return publicationYear;
+            };
+            vector<Chapter> getChapters(){
+                return chapters;
+            };
+            };
+    #endif
